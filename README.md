@@ -1,6 +1,6 @@
 # Python Client for Myna
 
-Basic Python client for Myna using =httplib=.
+Basic Python client for Myna using `httplib`.
 
 ## TODO
 
