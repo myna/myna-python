@@ -4,6 +4,38 @@ A simple Python client for Myna.
 
 This client uses the built-in `httplib` to allow you to suggest and reward your Myna clients. It has no external dependencies. Tested in Python 2.7.
 
+## Installation and Usage
+
+Just copy `myna.py` somewhere that is accessible from your code. Then to create an experiment:
+
+```python
+expt = Experiment('45923780-80ed-47c6-aa46-15e2ae7a0e8c')
+```
+
+Get a suggestion:
+
+```python
+suggestion = expt.suggest()
+```
+
+Do something with the choice Myna has made:
+
+```python
+doSomething(suggestion.choice)
+```
+
+Finally, reward the suggestion if the user did what you hoped they would.
+
+```python
+suggestion.reward()
+```
+
+See the API reference below for complete details.
+
+## TODO
+
+Better handle errors that aren't in the Myna format.
+
 ## Development
 
 Run the tests with
@@ -11,13 +43,6 @@ Run the tests with
 ```bash
 python -m unittest test
 ```
-
-## TODO
-
-- Better error handling
-- Documentation
-- Tests
-- Some kind of packaging?
 
 ## API Reference
 
@@ -40,9 +65,15 @@ Retrieves a suggestion from the Myna server. Returns a `Suggestion` object on su
 
 ### Suggestion
 
+Represents a suggestion returned by an experiment.
+
 #### Suggestion.choice
 
+The choice associated with this suggestion. A string.
+
 #### Suggestion.token
+
+The token associated with this suggestion. A string.
 
 #### Suggestion.reward([amount])
 
